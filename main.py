@@ -120,8 +120,11 @@ class NPole:
             
             if not(yag==None):
                 print("Sending emails...")
-                # Send the emails!
-                #yag.send(self.elves[l_elf_one_index].email, "2017 Secret Santa [Sent by Program]", "Congratulations "+ str(self.elves[l_elf_one_index].name) + ", the person you will be getting a gift for has been randomly chosen! That person is " + str(self.elves[l_elf_two_index].name))
+                
+                for elf in self.elves:
+                    
+                    # Send the emails!
+                    #yag.send(elf.email, "2017 Secret Santa [Sent by Program]", "Congratulations "+ str(elf.name) + ", the person you will be getting a gift for has been randomly chosen! That person is " + str(elf.myElf.name))
                 print("Mail sent! Merry Christmas everyone!!")
             else:
                 print("Mail not set up...")
