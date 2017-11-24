@@ -139,16 +139,9 @@ pole = NPole()
 # Add the Elves
 
 #pole.addElf("[NAME]", "[EMAIL]")
-pole.addElf("1", "1")
-pole.addElf("2", "2")
-pole.addElf("3", "3")
-pole.addElf("4", "4")
-pole.addElf("5", "5")
-pole.addElf("6", "6")
-pole.addElf("7", "7")
-pole.addElf("8", "8")
-pole.addElf("9", "9")
-pole.addElf("10", "10")
+pole.addElf("Steve Johnson", "StJohnson@potato.net")
+pole.addElf("Johnson Steves", "JoSteves@potato.net")
+
 
 
 pole.organizeProduction(random.randint(1,500))
