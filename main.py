@@ -63,11 +63,9 @@ class NPole:
     def sealTheGifts(self):
         print("Sealing the gifts...")
         if (self.organized == True):
-            for i in range(0,self.numElves-1):
+            for i in range(0,self.numElves):
                 self.elves[i].myElf = copy.deepcopy(self.picks[i])
-                #print (self.elves[i])
-                #print (self.picks[i])
-                #print(self.elves[i].name+"="+self.elves[i].myElf.name)
+                #print(self.elves[i].name+"=>"+self.elves[i].myElf.name) #Debug line. DO NOT USE IN REAL RUN
             self.sealed = True
         
     #Makes double sure that each elf has a match, isn't matched to itself, and 
@@ -76,7 +74,7 @@ class NPole:
         print("Checking the list...")
         if (self.organized == True) and (self.sealed == True):
             
-            for i in range(0,self.numElves-1):
+            for i in range(0,self.numElves):
                 if (self.elves[i].name == self.elves[i].myElf.name):
                     print("An Elf is set to give themself a gift! Shuffling a little more...")
                     self.organized = False
@@ -84,23 +82,24 @@ class NPole:
                     self.organizeProduction(1)
                     self.sealTheGifts()
                     
+                    
                     if (self.checkItTwice()):
                         self.organized = True
                         self.sealed = True
                         self.checked = True
-                        return True
+                        
                     else:
                         return self.checkItTwice()
                     
                 #Check that each elf has a match. If they don't-- ABORT.
-                if (self.elves[i].myElf == None):
+                if (self.elves[i].myElf is None):
                     
                     print("ELF "+self.elves[i].name+" HAS NOBODY TO SEND A GIFT TO. SHUTTING DOWN.")
                     self.checked = False
                     return False
                 
                 #Check each elf with each other elf to ensure they don't match with the same person
-                for j in range(0,self.numElves-1):
+                for j in range(0,self.numElves):
                     #If they're not the same person
                     if not(self.elves[i].name == self.elves[j].name):
                         #and they have the same match-- ABORT.
@@ -118,17 +117,38 @@ class NPole:
             print("Sending emails...")
         
             
-            if not(yag==None):
+            if not(yag is None):
                 print("Sending emails...")
                 
                 for elf in self.elves:
-                    
+                    print("Sending an email to "+elf.name)
                     # Send the emails!
                     #yag.send(elf.email, "2017 Secret Santa [Sent by Program]", "Congratulations "+ str(elf.name) + ", the person you will be getting a gift for has been randomly chosen! That person is " + str(elf.myElf.name))
-                print("Mail sent! Merry Christmas everyone!!")
+                print("All mail sent! Merry Christmas everyone!!")
             else:
                 print("Mail not set up...")
                 print("Mail not sent! Merry Christmas everyone!!")
+    
+    def cancelChristmas(self):
+        for elf in self.elves:
+            elf.myElf = None
+        self.organized = False
+        self.sealed = False 
+        self.checked = False
+        
+    def runTests(self, count):
+        total_failures = 0
+        num_failed_runs = 0
+        failed_runs = []
+        avg_err_count = 0
+        
+        for i in range(0,count):
+            self.organizeProduction(random.randint(1,500))
+            self.sealTheGifts()
+            if not (self.checkItTwice()):
+                num_failed_runs += 1
+            self.cancelChristmas()
+            print("Test #"+str(i+1)+" complete. Errors so far: "+ str(num_failed_runs)+"\n")
             
             
         
@@ -147,8 +167,15 @@ pole.addElf("Johnson Steves", "JoSteves@potato.net")
 
 
 
+
+
+pole.runTests(50)
+
 pole.organizeProduction(random.randint(1,500))
 pole.sealTheGifts()
 pole.checkItTwice()
 pole.sendRudolf()
+
+
+
 print("DONE")
