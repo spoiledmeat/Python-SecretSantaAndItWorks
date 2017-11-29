@@ -33,7 +33,8 @@ pole.sendRudolf() # This looks at each elf and who they're matched with. It send
 
 ### For a test run without yagmail: 
 1) Create elves with pole.addElf("NAME","EMAIL") after creation of the pole variable. Around line 160.
-2) from a command line/terminal, run main.py. You should see 
+2) from a command line/terminal, run main.py. You should see output similar to the below.
+![noYagTestrun](https://puu.sh/yvK7m/71231124b3.png)
 
 from a command line/terminal, run main.py
 2)
