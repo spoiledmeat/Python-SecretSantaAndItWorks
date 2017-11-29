@@ -65,11 +65,10 @@ class NPole:
         if (self.organized == True):
             for i in range(0,self.numElves):
                 self.elves[i].myElf = copy.deepcopy(self.picks[i])
-                #print(self.elves[i].name+"=>"+self.elves[i].myElf.name) #Debug line. DO NOT USE IN REAL RUN
+                #print(self.elves[i].name+"=>"+self.elves[i].myElf.name) #Debug line. DO NOT USE IN REAL RUN ("CHEAT LINE")
             self.sealed = True
         
-    #Makes double sure that each elf has a match, isn't matched to itself, and 
-    #that nobody has been matched twice.
+    #Makes double sure that each elf has a match, isn't matched to itself, and that nobody has been matched twice.
     def checkItTwice(self):
         print("Checking the list...")
         if (self.organized == True) and (self.sealed == True):
@@ -150,12 +149,6 @@ class NPole:
             self.cancelChristmas()
             print("Test #"+str(i+1)+" complete. Errors so far: "+ str(num_failed_runs)+"\n")
             
-            
-        
-    
-
-    
-
 
 pole = NPole()
 
@@ -169,7 +162,7 @@ pole.addElf("Federico Pineli","gr8potato@yotato.net")
 
 
 
-pole.runTests(300)
+pole.runTests(30)
 
 pole.organizeProduction(random.randint(1,500))
 pole.sealTheGifts()
