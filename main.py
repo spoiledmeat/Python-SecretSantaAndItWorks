@@ -161,15 +161,15 @@ pole = NPole()
 
 # Add the Elves
 
-#pole.addElf("[NAME]", "[EMAIL]")
+#pole.addElf("NAME", "EMAIL")
 pole.addElf("Steve Johnson", "StJohnson@potato.net")
 pole.addElf("Johnson Steves", "JoSteves@potato.net")
+pole.addElf("Federico Pineli","gr8potato@yotato.net")
 
 
 
 
-
-pole.runTests(50)
+pole.runTests(300)
 
 pole.organizeProduction(random.randint(1,500))
 pole.sealTheGifts()
