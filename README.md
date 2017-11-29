@@ -1,7 +1,7 @@
 # Python-SecretSantaAndItWorks (PSSAW)
 A recreation of my previous SecretSantaAndAChanceOfError, but now with relatively few errors! I DO recommend this version for your personal Secret Santa games!
 
-XX Requirements
+## Requirements
 -Gmail username, password. This is the email address that your participants will get an email from.
 
 -yagmail This is a python library available at 
@@ -12,10 +12,10 @@ Look at the installation section in yagmail's readme.
 their giftee's names.
 
 
-XX Quick Note
+## Quick Note
 I recommend running at least TWO test runs. One without yagmail enabled, and one with yagmail enabled and using only a subset of your participants. This helps to make sure you know how PSSAW works, and hopefully exposes any potential issues before you try a real run.
 
-XX Usage
+## Usage
 The main lines that perform a run are as follows. They must be done in performed in this order.
 pole = NPole() # This creates an instance of the class that performs matching.
 
@@ -31,7 +31,7 @@ pole.checkItTwice() # This performs checks and ensures that each elf has a match
 
 pole.sendRudolf() # This looks at each elf and who they're matched with. It sends an email to that elf with their match's name.
 
-XXXFor a test run without yagmail: 
+### For a test run without yagmail: 
 1) Create elves with pole.addElf("NAME","EMAIL") after creation of the pole variable. Around line 160.
 2) from a command line/terminal, run main.py. You should see 
 
